@@ -1,8 +1,8 @@
-function TaskItem(){
+function TaskItem(props){
     return(
       <li>
         <span>V</span>
-        <p>Check my emails</p>
+        <p>{props.text}</p>
         <span>X</span>
       </li>
     );

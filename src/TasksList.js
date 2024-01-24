@@ -1,7 +1,7 @@
-function TasksList(props){
+function TasksList({children}){
   return(
     <ul>
-      {props.children}
+      {children}
     </ul>
   );
 }

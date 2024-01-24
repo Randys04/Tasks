@@ -4,22 +4,33 @@ import { TasksList } from './TasksList';
 import { TaskItem } from './TaskItem';
 import { CreateTaskButton } from './CreateTaskButton'
 import './App.css';
+import React from 'react';
+
+const tasks = [
+  {text : "Do my english homework", completed: false},
+  {text : "Check and respond to emails", completed: true},
+  {text : "Running 7 kilometres", completed: false},
+  {text : "See Platzi class", completed: true},
+  {text : "Prepare my breakfast", completed: false}
+]
 
 function App() {
   return (
-    <div className="App">
+    // crea un elemento invisible
+    <React.Fragment>
 
-      <TasksCounter />
+      <TasksCounter completed={10} total={14} />
       <TasksSearch/>
 
       <TasksList>
-        <TaskItem />
-        <TaskItem />
-        <TaskItem />
+        {tasks.map(task => (
+          // necesario enviar lel atributo key
+          <TaskItem key={task.text} text={task.text} completed={task.completed}/>
+        ))}
       </TasksList>
 
       <CreateTaskButton />
-    </div>
+    </React.Fragment>
   );
 }
 

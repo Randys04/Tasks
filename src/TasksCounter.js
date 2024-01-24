@@ -1,6 +1,6 @@
-function TasksCounter(){
+function TasksCounter({total, completed}){
   return(
-    <h1>You have completed 0 of 10 tasks</h1>
+    <h1>You have completed {completed} of {total} tasks</h1>
   );
 }
 
