@@ -2,7 +2,7 @@ import './TaskItem.css'
 
 function TaskItem(props){
     return(
-      <li>
+      <li className={`${props.completed && "li-completed"}`}>
         <input className='item-options input-completed' type='checkbox' checked={props.completed}></input>
         <p className={`${props.completed && "p-completed"}`}>{props.text}</p>
         <button className='item-options'>

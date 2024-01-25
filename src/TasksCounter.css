@@ -1,16 +1,27 @@
 .counter{
+    
     text-align: center;
     margin: 0 0 20px 0;
     padding: 5px 8px;
     font-size: 26px;
     border-radius: 5px;
     font-weight: 400;
-    color: #a1c1be;
-    background-color: #59554e;
+    color: #59554e;
+    background-color: #a1c1be;
 }
-
+.counter-span{
+    margin: 0;
+    font-weight: 500;
+}
+.counter-span-completed{
+    color: #c5fcaf;
+}
+.counter-span-incompleted{
+    color: #e58585;
+}
 @media (max-width: 600px) {
     .counter{
         width: 90%;
+        font-size: 24px;
     }
 }
