@@ -36,6 +36,7 @@ li input:checked{
 }
 li p{
     font-weight: 400;
+    font-size: 14px;
     color: #59554e;
 }
 li button{
