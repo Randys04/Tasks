@@ -12,10 +12,11 @@ const tasks = [
   {text : "Running 7 kilometres", completed: false},
   {text : "See Platzi class", completed: true},
   {text : "Prepare my breakfast", completed: false},
-  {text : "Do my english homework", completed: false},
-  {text : "Check and respond to emails", completed: true},
-  
+  {text : "Do my maths homework", completed: false},
+  {text : "Wash my car", completed: true},
 ]
+
+console.log("hola");
 
 function App() {
   return (

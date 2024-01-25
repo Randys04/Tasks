@@ -21,15 +21,17 @@ li input{
     -webkit-appearance: none; /* Para navegadores basados en WebKit como Chrome y Safari */
     -moz-appearance: none; /* Para Firefox */
     border-radius: 5px;
-    background-color: #a1c1be; /* Color de fondo cuando no está marcada */
-    outline: none; /* Elimina el contorno predeterminado al enfocar */
+    background-color: #e58585; 
+    outline: none; 
     cursor: pointer;
+    transition: 0.5s;
     box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.45);
     -webkit-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.45);
     -moz-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.45);
 }
 li input:checked{
     transition: 0.5s;
+    background-color: #c0f0ad;
     box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.45) inset;
     -webkit-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.45) inset;
     -moz-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.45) inset;
@@ -38,6 +40,10 @@ li p{
     font-weight: 400;
     font-size: 14px;
     color: #59554e;
+}
+.p-completed{
+    text-decoration: line-through;
+    opacity: 65%;
 }
 li button{
     display: flex;
