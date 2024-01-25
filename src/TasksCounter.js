@@ -1,6 +1,8 @@
+import './TasksCounter.css'
+
 function TasksCounter({total, completed}){
   return(
-    <h1>You have completed {completed} of {total} tasks</h1>
+    <h1 className='counter'>You've completed {completed} of {total} tasks</h1>
   );
 }
 

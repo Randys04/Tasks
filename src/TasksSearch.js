@@ -1,6 +1,8 @@
+import './TasksSearch.css'
+
 function TasksSearch(){
   return(
-    <input placeholder="Do my english homework"></input>
+    <input className='input-search' placeholder="Do my english homework"></input>
   );
 }
 

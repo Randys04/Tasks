@@ -1,0 +1,25 @@
+.add-btn{
+    height: 40px;
+    width: 140px;
+    margin-top: 24px;
+    border: none;
+    letter-spacing: 1.5px;
+    background-color: #a1c1be;
+    font-weight: 500;
+    color: #59554e;
+    font-size: 18px;
+    border-radius: 5px;
+    box-shadow: 6px 6px 4px 0px rgba(0,0,0,0.45);
+    -webkit-box-shadow: 6px 6px 4px 0px rgba(0,0,0,0.45);
+    -moz-box-shadow: 6px 6px 4px 0px rgba(0,0,0,0.45);
+    transition: 0.5s;
+}
+.add-btn:hover{
+    box-shadow: -6px -6px 4px 0px rgba(0,0,0,0.45);
+    -webkit-box-shadow: -6px -6px 4px 0px rgba(0,0,0,0.45);
+    -moz-box-shadow: -6px -6px 4px 0px rgba(0,0,0,0.45);
+    transition: 0.5s;
+    cursor: pointer;
+    background-color: #59554e;
+    color: #a1c1be;
+}

@@ -1,0 +1,32 @@
+ul{
+    box-sizing: border-box;
+    padding: 0;
+    height: 388px;
+    width: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px 20px 20px;
+    border-radius: 5px;
+    overflow: auto;
+    background-color: #59554e;
+}
+::-webkit-scrollbar {
+    width: 12px; 
+}
+::-webkit-scrollbar-track {
+    background-color: #59554e;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #a1c1be;
+    border-radius: 6px; 
+}
+
+@media (max-width: 600px) {
+    ul{
+        
+        width: 95%;
+        
+    }
+}

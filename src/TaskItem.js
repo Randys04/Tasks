@@ -1,9 +1,13 @@
+import './TaskItem.css'
+
 function TaskItem(props){
     return(
       <li>
-        <span>V</span>
+        <input className='item-options' type='checkbox'></input>
         <p>{props.text}</p>
-        <span>X</span>
+        <button className='item-options'>
+          <img  src="/trash.png" alt="trash" />
+        </button>
       </li>
     );
 }

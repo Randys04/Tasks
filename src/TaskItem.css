@@ -1,0 +1,65 @@
+
+li{
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f3f4e5;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+.item-options{
+    margin: 0;
+    padding: 0;
+    margin: 5px;
+}
+li input{
+    height: 18px;
+    width: 18px;
+    appearance: none; /* Elimina el estilo predeterminado del navegador */
+    -webkit-appearance: none; /* Para navegadores basados en WebKit como Chrome y Safari */
+    -moz-appearance: none; /* Para Firefox */
+    border-radius: 5px;
+    background-color: #a1c1be; /* Color de fondo cuando no está marcada */
+    outline: none; /* Elimina el contorno predeterminado al enfocar */
+    cursor: pointer;
+    box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.45);
+    -webkit-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.45);
+    -moz-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.45);
+}
+li input:checked{
+    transition: 0.5s;
+    box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.45) inset;
+    -webkit-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.45) inset;
+    -moz-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.45) inset;
+}
+li p{
+    font-weight: 400;
+    color: #59554e;
+}
+li button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border: none;
+    height: 26px;
+    width: 26px;
+    background-color: transparent;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+li button:hover{
+    transition: 0.5s;
+    cursor: pointer;
+    box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.75);
+}
+li button img{
+    height: 22px;
+    
+}
+
+
