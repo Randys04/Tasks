@@ -20,14 +20,20 @@ const tasksDefault = [
 
 function App() {
 
-  //Estado de las tasks
+  // Estado de las tasks
   const [tasks, setTask] = React.useState(tasksDefault);
+
+  // Estado del componente TasksSearch
+  const [searchValue, setSearchValue] = React.useState('');
+  console.log(searchValue);
+
+  // Estados derivados
   const tasksCompleted = tasks.filter(task => task.completed).length;
   const tasksTotal = tasks.length;
 
-  //Estado del componente TasksSearch
-  const [searchValue, setSearchValue] = React.useState('');
-  console.log(searchValue);
+  const searchedTasks = tasks.filter(task => task.text.toLowerCase().includes(searchValue.toLowerCase()));
+  console.log(searchedTasks);
+
 
   return (
     // crea un elemento invisible 
@@ -41,7 +47,7 @@ function App() {
       />
 
       <TasksList>
-        {tasks.map(task => (
+        {searchedTasks.map(task => (
           // necesario enviar lel atributo key
           <TaskItem key={task.text} text={task.text} completed={task.completed}/>
         ))}
