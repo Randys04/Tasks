@@ -3,16 +3,13 @@ import './TasksSearch.css';
 
 
 
-function TasksSearch(){
-  const [searchValue, setSearchValue] = React.useState('');
-
+function TasksSearch({searchVal,setSearchVal}){
 
   return(
-    <input className='input-search' placeholder="Do my english homework" value={searchValue}
+    <input className='input-search' placeholder="Do my english homework" value={searchVal}
     onChange={(e)=>{
       console.log("Writting in the input");
-      console.log(e.target.value);
-      setSearchValue(e.target.value);
+      setSearchVal(e.target.value);
     }}
     ></input>
   );

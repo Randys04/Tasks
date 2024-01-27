@@ -6,7 +6,7 @@ import { CreateTaskButton } from './CreateTaskButton'
 import { TasksTitle } from './TasksTitle';
 import React from 'react';
 
-const tasks = [
+const tasksDefault = [
   {text : "Do my english homework", completed: false},
   {text : "Check and respond to emails", completed: true},
   {text : "Running 7 kilometres", completed: false},
@@ -14,18 +14,31 @@ const tasks = [
   {text : "Prepare my breakfast", completed: false},
   {text : "Do my maths homework", completed: false},
   {text : "Wash my car", completed: true},
+  {text : "See the match", completed: true},
 ]
 
-console.log("hola");
 
 function App() {
+
+  //Estado de las tasks
+  const [tasks, setTask] = React.useState(tasksDefault);
+  const tasksCompleted = tasks.filter(task => task.completed).length;
+  const tasksTotal = tasks.length;
+
+  //Estado del componente TasksSearch
+  const [searchValue, setSearchValue] = React.useState('');
+  console.log(searchValue);
+
   return (
-    // crea un elemento invisible
+    // crea un elemento invisible 
     <>
 
       <TasksTitle/>
-      <TasksCounter completed={10} total={14} />
-      <TasksSearch/>
+      <TasksCounter completed={tasksCompleted} total={tasksTotal} />
+      <TasksSearch
+        searchVal={searchValue} // Se le puede colocar el mismo nombre, Ej: searchValue={searchValue}
+        setSearchVal={setSearchValue}
+      />
 
       <TasksList>
         {tasks.map(task => (
