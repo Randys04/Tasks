@@ -6,22 +6,34 @@ import { CreateTaskButton } from './CreateTaskButton'
 import { TasksTitle } from './TasksTitle';
 import React from 'react';
 
-const tasksDefault = [
-  {text : "Do my english homework", completed: false},
-  {text : "Check and respond to emails", completed: false},
-  {text : "Running 7 kilometres", completed: false},
-  {text : "See Platzi class", completed: false},
-  {text : "Prepare my breakfast", completed: false},
-  {text : "Do my maths homework", completed: false},
-  {text : "Wash my car", completed: false},
-  {text : "See the match", completed: false},
-]
+// const tasksDefault = [
+//   {text : "Do my english homework", completed: false},
+//   {text : "Check and respond to emails", completed: false},
+//   {text : "Running 7 kilometres", completed: false},
+//   {text : "See Platzi class", completed: false},
+//   {text : "Prepare my breakfast", completed: false},
+//   {text : "Do my maths homework", completed: false},
+//   {text : "Wash my car", completed: false},
+//   {text : "See the match", completed: false},
+// ]
+
+// localStorage.setItem('TASKS_V1', JSON.stringify(tasksDefault));
+// localStorage.removeItem('TASKS_V1');
 
 
 function App() {
 
+  let parsedTasks;
+
+  if(!localStorage.getItem('TASKS_V1')){
+    localStorage.setItem('TASKS_V1', JSON.stringify([]));
+    parsedTasks = [];
+  }else{
+    parsedTasks = JSON.parse(localStorage.getItem('TASKS_V1'));
+  }
+
   // Estado de las tasks
-  const [tasks, setTasks] = React.useState(tasksDefault);
+  const [tasks, setTasks] = React.useState(parsedTasks);
 
   // Estado del componente TasksSearch
   const [searchValue, setSearchValue] = React.useState('');
@@ -34,6 +46,13 @@ function App() {
   const searchedTasks = tasks.filter(task => task.text.toLowerCase().includes(searchValue.toLowerCase()));
   console.log(searchedTasks);
 
+  // funcion para actualizar el localStorage de las Tasks
+  const saveTasks = (newTasks) => {
+    localStorage.removeItem('TASKS_V1');
+    localStorage.setItem('TASKS_V1', JSON.stringify(newTasks));
+    setTasks(newTasks);
+  }
+
   // funcionalidad para marcar una task como completada
   const finishTask = (textKey) => {
     const newTasks = [...tasks];
@@ -45,14 +64,14 @@ function App() {
       newTasks[taskIndex].completed = true;
     }
     console.log(newTasks[taskIndex].completed )
-    setTasks(newTasks);
+    saveTasks(newTasks);
   }
 
   const deleteTask = (textKey) => {
     const newTasks = [...tasks];
     const taskIndex = newTasks.findIndex(task => task.text === textKey)
     newTasks.splice(taskIndex, 1);
-    setTasks(newTasks);
+    saveTasks(newTasks);
   }
 
   return (
