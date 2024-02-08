@@ -6,7 +6,12 @@ import { AppUI } from './appUI';
 function App() {
 
   // Estado de las tasks
-  const [tasks, saveTasks] = useLocalStorage('TASKS_V1', []);
+  const {
+    item: tasks, 
+    saveItem: saveTasks,
+    loading,
+    error,
+  } = useLocalStorage('TASKS_V1', []);
 
   // Estado del componente TasksSearch
   const [searchValue, setSearchValue] = React.useState('');
@@ -37,7 +42,7 @@ function App() {
     newTasks.splice(taskIndex, 1);
     saveTasks(newTasks);
   }
-
+  
   return(
     <AppUI
     tasksCompleted = {tasksCompleted}
@@ -47,7 +52,8 @@ function App() {
     searchedTasks = {searchedTasks}
     finishTask = {finishTask}
     deleteTask = {deleteTask}
-    
+    loading = {loading}
+    error = {error}
   />
   )
 }

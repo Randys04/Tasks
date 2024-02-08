@@ -1,0 +1,10 @@
+.error-task-msg{
+    color: #e58585;
+    font-weight: 100;
+    font-size: 17px;
+    letter-spacing: 0.5px;
+}
+.error-img{
+    height: 80px;
+    width: 80px;
+}

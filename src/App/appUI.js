@@ -4,6 +4,9 @@ import { TasksList } from '../TasksList';
 import { TaskItem } from '../TaskItem';
 import { CreateTaskButton } from '../CreateTaskButton'
 import { TasksTitle } from '../TasksTitle';
+import { TasksLoading } from '../TasksLoading';
+import { TasksError } from '../TasksError'
+import { EmptyTasks } from '../EmptyTasks';
 
 function AppUI({
   tasksCompleted,
@@ -12,7 +15,9 @@ function AppUI({
   setSearchValue,
   searchedTasks,
   finishTask,
-  deleteTask
+  deleteTask,
+  loading,
+  error
 }){
   return (
     // crea un elemento invisible 
@@ -26,6 +31,10 @@ function AppUI({
       />
 
       <TasksList>
+        {loading && <TasksLoading/>}
+        {error && <TasksError/>}
+        {(!loading && searchedTasks.length === 0) && <EmptyTasks/>}
+
         {searchedTasks.map(task => (
           // necesario enviar lel atributo key
           <TaskItem
