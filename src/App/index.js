@@ -1,26 +1,6 @@
 import React from 'react';
-import { TasksCounter } from '../TasksCounter';
-import { TasksSearch } from '../TasksSearch';
-import { TasksList } from '../TasksList';
-import { TaskItem } from '../TaskItem';
-import { CreateTaskButton } from '../CreateTaskButton'
-import { TasksTitle } from '../TasksTitle';
 import { useLocalStorage } from './useLocalStorage';
-
-
-// const tasksDefault = [
-//   {text : "Do my english homework", completed: false},
-//   {text : "Check and respond to emails", completed: false},
-//   {text : "Running 7 kilometres", completed: false},
-//   {text : "See Platzi class", completed: false},
-//   {text : "Prepare my breakfast", completed: false},
-//   {text : "Do my maths homework", completed: false},
-//   {text : "Wash my car", completed: false},
-//   {text : "See the match", completed: false},
-// ]
-
-// localStorage.setItem('TASKS_V1', JSON.stringify(tasksDefault));
-// localStorage.removeItem('TASKS_V1');
+import { AppUI } from './appUI';
 
 
 function App() {
@@ -37,7 +17,6 @@ function App() {
   const tasksTotal = tasks.length;
 
   const searchedTasks = tasks.filter(task => task.text.toLowerCase().includes(searchValue.toLowerCase()));
-
 
   // funcionalidad para marcar una task como completada
   const finishTask = (textKey) => {
@@ -59,34 +38,18 @@ function App() {
     saveTasks(newTasks);
   }
 
-  return (
-    // crea un elemento invisible 
-    <>
-
-      <TasksTitle/>
-      <TasksCounter completed={tasksCompleted} total={tasksTotal} />
-      <TasksSearch
-        searchVal={searchValue} // Se le puede colocar el mismo nombre, Ej: searchValue={searchValue}
-        setSearchVal={setSearchValue}
-      />
-
-      <TasksList>
-        {searchedTasks.map(task => (
-          // necesario enviar lel atributo key
-          <TaskItem
-            key={task.text} 
-            text={task.text} 
-            completed={task.completed}
-            //setTasks={saveTasks}
-            onCompleted={() => finishTask(task.text)}
-            onDelete={() => deleteTask(task.text)}
-          />
-        ))}
-      </TasksList>
-
-      <CreateTaskButton />
-    </>
-  );
+  return(
+    <AppUI
+    tasksCompleted = {tasksCompleted}
+    tasksTotal = {tasksTotal}
+    searchValue = {searchValue}
+    setSearchValue = {setSearchValue}
+    searchedTasks = {searchedTasks}
+    finishTask = {finishTask}
+    deleteTask = {deleteTask}
+    
+  />
+  )
 }
 
 export default App;
