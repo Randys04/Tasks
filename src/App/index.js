@@ -1,10 +1,12 @@
-import { TasksCounter } from './TasksCounter';
-import { TasksSearch } from './TasksSearch';
-import { TasksList } from './TasksList';
-import { TaskItem } from './TaskItem';
-import { CreateTaskButton } from './CreateTaskButton'
-import { TasksTitle } from './TasksTitle';
 import React from 'react';
+import { TasksCounter } from '../TasksCounter';
+import { TasksSearch } from '../TasksSearch';
+import { TasksList } from '../TasksList';
+import { TaskItem } from '../TaskItem';
+import { CreateTaskButton } from '../CreateTaskButton'
+import { TasksTitle } from '../TasksTitle';
+import { useLocalStorage } from './useLocalStorage';
+
 
 // const tasksDefault = [
 //   {text : "Do my english homework", completed: false},
@@ -19,28 +21,7 @@ import React from 'react';
 
 // localStorage.setItem('TASKS_V1', JSON.stringify(tasksDefault));
 // localStorage.removeItem('TASKS_V1');
-function useLocalStorage(itemName, initialValue){
-  const localStorageItem = localStorage.getItem(itemName);
 
-  let parsedItem;
-
-  if(!localStorageItem){
-    localStorage.setItem(itemName, JSON.stringify(initialValue));
-    parsedItem = initialValue;
-  }else{
-    parsedItem= JSON.parse(localStorageItem);
-  }
-
-  const [item, setItem] = React.useState(parsedItem);
-
-  // funcion para actualizar el localStorage de las Tasks
-  const saveItem = (newItem) => {
-    localStorage.removeItem(itemName);
-    localStorage.setItem(itemName, JSON.stringify(newItem));
-    setItem(newItem);
-  }
-  return [item, saveItem];
-}
 
 function App() {
 
