@@ -19,39 +19,44 @@ import React from 'react';
 
 // localStorage.setItem('TASKS_V1', JSON.stringify(tasksDefault));
 // localStorage.removeItem('TASKS_V1');
+function useLocalStorage(itemName, initialValue){
+  const localStorageItem = localStorage.getItem(itemName);
 
+  let parsedItem;
+
+  if(!localStorageItem){
+    localStorage.setItem(itemName, JSON.stringify(initialValue));
+    parsedItem = initialValue;
+  }else{
+    parsedItem= JSON.parse(localStorageItem);
+  }
+
+  const [item, setItem] = React.useState(parsedItem);
+
+  // funcion para actualizar el localStorage de las Tasks
+  const saveItem = (newItem) => {
+    localStorage.removeItem(itemName);
+    localStorage.setItem(itemName, JSON.stringify(newItem));
+    setItem(newItem);
+  }
+  return [item, saveItem];
+}
 
 function App() {
 
-  let parsedTasks;
-
-  if(!localStorage.getItem('TASKS_V1')){
-    localStorage.setItem('TASKS_V1', JSON.stringify([]));
-    parsedTasks = [];
-  }else{
-    parsedTasks = JSON.parse(localStorage.getItem('TASKS_V1'));
-  }
-
   // Estado de las tasks
-  const [tasks, setTasks] = React.useState(parsedTasks);
+  const [tasks, saveTasks] = useLocalStorage('TASKS_V1', []);
 
   // Estado del componente TasksSearch
   const [searchValue, setSearchValue] = React.useState('');
-  console.log(searchValue);
+  
 
   // Estados derivados
   const tasksCompleted = tasks.filter(task => task.completed).length;
   const tasksTotal = tasks.length;
 
   const searchedTasks = tasks.filter(task => task.text.toLowerCase().includes(searchValue.toLowerCase()));
-  console.log(searchedTasks);
 
-  // funcion para actualizar el localStorage de las Tasks
-  const saveTasks = (newTasks) => {
-    localStorage.removeItem('TASKS_V1');
-    localStorage.setItem('TASKS_V1', JSON.stringify(newTasks));
-    setTasks(newTasks);
-  }
 
   // funcionalidad para marcar una task como completada
   const finishTask = (textKey) => {
@@ -63,7 +68,6 @@ function App() {
     }else{
       newTasks[taskIndex].completed = true;
     }
-    console.log(newTasks[taskIndex].completed )
     saveTasks(newTasks);
   }
 
@@ -92,7 +96,7 @@ function App() {
             key={task.text} 
             text={task.text} 
             completed={task.completed}
-            setTasks={setTasks}
+            //setTasks={saveTasks}
             onCompleted={() => finishTask(task.text)}
             onDelete={() => deleteTask(task.text)}
           />
