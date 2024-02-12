@@ -1,0 +1,71 @@
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #59554e;
+  box-sizing: border-box;
+  border-radius: 20px;
+  padding: 10px;
+  height: 190px;
+  width: 320px;
+}
+form label{
+  color: #f3f4e5;
+  font-weight: 600;
+  font-size: 24px;
+}
+form textarea{
+  resize: none;
+  border-radius: 10px;
+  box-sizing: border-box;
+  border: solid 2px transparent;
+  width: 90%;
+  height: 64px;
+  padding: 6px;
+  background-color: #f3f4e5;
+  outline: none;
+  transition: 0.5s;
+}
+form textarea:focus{
+  border: solid 2px #f3f4e5;
+  background-color: #59554e;
+  color: #f3f4e5;
+  transition: 0.5s;
+}
+.task-form-btns{
+  display: flex;
+  width: 70%;
+  height: 35px;
+  justify-content: space-between;
+
+}
+.task-form-btn-cancel{
+  font-size: 14px;
+  font-weight: 500;
+  width: 75px;
+  height: 30px;
+  color: #59554e;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #e2e3d9;  
+  transition: 0.5s;
+}
+.task-form-btn-add{
+  font-size: 14px;
+  font-weight: 500;
+  width: 75px;
+  height: 30px;
+  color: #59554e;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #a1c1be;
+  transition: 0.5s;
+}
+.task-form-btn-add:hover, .task-form-btn-cancel:hover{
+  transition: 0.5s;
+  width: 80px;
+  height: 35px; 
+}

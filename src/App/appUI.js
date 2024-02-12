@@ -7,6 +7,7 @@ import { TasksTitle } from '../TasksTitle';
 import { TasksLoading } from '../TasksLoading';
 import { TasksError } from '../TasksError'
 import { EmptyTasks } from '../EmptyTasks';
+import { TaskForm } from '../TaskForm';
 import { TasksContext } from '../TasksContext';
 import { Modal } from '../Modal';
 import React from 'react';
@@ -46,7 +47,7 @@ function AppUI(){
       <CreateTaskButton />
       {addTask && (
         <Modal>
-          Add new tasks
+          <TaskForm />
         </Modal>
       )}
     </>
