@@ -8,6 +8,7 @@ import { TasksLoading } from '../TasksLoading';
 import { TasksError } from '../TasksError'
 import { EmptyTasks } from '../EmptyTasks';
 import { TasksContext } from '../TasksContext';
+import { Modal } from '../Modal';
 import React from 'react';
 
 function AppUI(){
@@ -16,7 +17,8 @@ function AppUI(){
     finishTask,
     deleteTask,
     loading,
-    error
+    error,
+    addTask
   } = React.useContext(TasksContext);
   return (
     // crea un elemento invisible 
@@ -42,6 +44,11 @@ function AppUI(){
       </TasksList>
 
       <CreateTaskButton />
+      {addTask && (
+        <Modal>
+          Add new tasks
+        </Modal>
+      )}
     </>
   );
 }

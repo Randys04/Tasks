@@ -14,7 +14,9 @@ function TasksProvider({children}){
 
   // Estado del componente TasksSearch
   const [searchValue, setSearchValue] = React.useState('');
-  
+
+  // Estado para la funcionalidad de anadir tasks
+  const [addTask, setAddTask] = React.useState(false);
 
   // Estados derivados
   const tasksCompleted = tasks.filter(task => task.completed).length;
@@ -51,7 +53,9 @@ function TasksProvider({children}){
       finishTask,
       deleteTask,
       loading,
-      error
+      error,
+      setAddTask,
+      addTask
     }}>
       {children}
     </TasksContext.Provider>
