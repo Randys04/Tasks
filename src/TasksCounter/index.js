@@ -1,8 +1,14 @@
+import React from 'react';
 import './TasksCounter.css'
+import { TasksContext } from '../TasksContext';
 
-function TasksCounter({total, completed}){
+function TasksCounter(){
+  const {
+    tasksTotal,
+    tasksCompleted
+  } = React.useContext(TasksContext);
   return(
-    <h1 className='counter'>You've completed <span className='counter counter-span counter-span-completed'>{completed}</span> of <span className='counter counter-span counter-span-incompleted'>{total}</span> tasks</h1>
+    <h1 className='counter'>You've completed <span className='counter counter-span counter-span-completed'>{tasksCompleted}</span> of <span className='counter counter-span counter-span-incompleted'>{tasksTotal}</span> tasks</h1>
   );
 }
 
