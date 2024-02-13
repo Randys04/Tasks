@@ -13,7 +13,7 @@ function TaskItem(props){
         <button className='item-options'
         onClick={props.onDelete}
         >
-          <img  src="/trash.png" alt="trash" />
+          <img  src="./trash.png" alt="trash" />
         </button>
       </li>
     ); 
