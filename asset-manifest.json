@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Randys04/Tasks/static/css/main.4be567d0.css",
+    "main.js": "/Randys04/Tasks/static/js/main.946260db.js",
+    "index.html": "/Randys04/Tasks/index.html",
+    "main.4be567d0.css.map": "/Randys04/Tasks/static/css/main.4be567d0.css.map",
+    "main.946260db.js.map": "/Randys04/Tasks/static/js/main.946260db.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4be567d0.css",
+    "static/js/main.946260db.js"
+  ]
+}
