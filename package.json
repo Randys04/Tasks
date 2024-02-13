@@ -10,8 +10,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -31,8 +29,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://github.com/Randys04/Tasks",
-  "devDependencies": {
-    "gh-pages": "^6.1.1"
-  }
+  "homepage": "https://github.com/Randys04/Tasks"
 }
