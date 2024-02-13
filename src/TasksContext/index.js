@@ -24,6 +24,15 @@ function TasksProvider({children}){
 
   const searchedTasks = tasks.filter(task => task.text.toLowerCase().includes(searchValue.toLowerCase()));
 
+  const addNewTask = (text)=>{
+    const newTasks = [...tasks];
+    newTasks.push({
+      text,
+      completed: false,
+    });
+    saveTasks(newTasks);
+  }
+
   // funcionalidad para marcar una task como completada
   const finishTask = (textKey) => {
     const newTasks = [...tasks];
@@ -54,8 +63,9 @@ function TasksProvider({children}){
       deleteTask,
       loading,
       error,
-      setAddTask,
-      addTask
+      setAddTask, //bool para saber si mostrar o no el Modal
+      addTask,
+      addNewTask,
     }}>
       {children}
     </TasksContext.Provider>
