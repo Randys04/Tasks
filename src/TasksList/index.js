@@ -1,8 +1,9 @@
 import './TasksList.css'
 
-function TasksList({children}){
+function TasksList({children, loading, error, emptyTasks}){
   return(
-    <ul>
+    <ul className={`${loading || error || emptyTasks ? 'without-items' : ''}`}>
+      {console.log(`${loading} ${error} ${emptyTasks}`)}
       {children}
     </ul>
   );

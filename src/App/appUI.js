@@ -28,7 +28,12 @@ function AppUI(){
       <TasksCounter />
       <TasksSearch />
 
-      <TasksList>
+      <TasksList
+        loading={loading}
+        error={error}
+        emptyTasks={(!loading && searchedTasks.length === 0)}
+      >
+        
         {loading && <TasksLoading/>}
         {error && <TasksError/>}
         {(!loading && searchedTasks.length === 0) && <EmptyTasks/>}
