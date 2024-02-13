@@ -1,7 +1,8 @@
 ul{
     box-sizing: border-box;
     padding: 0;
-    height: 388px;
+    margin: 0;
+    height: 100%;
     width: 480px;
     display: flex;
     flex-direction: column;
@@ -29,7 +30,7 @@ ul{
 @media (max-width: 600px) {
     ul{
         
-        width: 95%;
-        
+        width: 85%;
+
     }
 }
